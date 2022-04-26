@@ -18,6 +18,8 @@ def vienads():
         result=num1*num2
     elif mathOp=="/":
         result=num1/num2
+    elif mathOp=="%":
+        result=num1*0.01*num2
     else:
         result=0
     e.delete(0,END)
@@ -55,10 +57,11 @@ def logaritms():
     global num1
     global mathOp
     num1=(float(e.get()))
-    num1=log(num1, 10)
+    num1=log10(num1)
     e.delete(0,END)
     e.insert(0,num1)
     return 0
+
 
 btn0 = Button(mansLogs, text="0", padx="40", pady="20", command=lambda:btnClick(0),bg="grey", fg="white")
 btn1 = Button(mansLogs, text="1", padx="40", pady="20", command=lambda:btnClick(1),bg="grey", fg="white")
@@ -75,11 +78,12 @@ btn11 = Button(mansLogs, text="-", padx="40", pady="20", command=lambda:btnComma
 btn12 = Button(mansLogs, text="/", padx="40", pady="20", command=lambda:btnCommand("/"),bg="grey", fg="white")
 btn13 = Button(mansLogs, text="*", padx="40", pady="20", command=lambda:btnCommand("*"),bg="grey", fg="white")
 btn14 = Button(mansLogs, text="sqrt", padx="40", pady="20", command=sq_rt, bg="grey", fg="white")
-btn15 = Button(mansLogs, text="square", padx="40", pady="20", command=kvadrats, bg="grey", fg="white")
+btn15 = Button(mansLogs, text="Kāp", padx="40", pady="20", command=kvadrats, bg="grey", fg="white")
 btn16 = Button(mansLogs, text="log", padx="40", pady="20", command=logaritms, bg="grey", fg="white")
 btn17 = Button(mansLogs, text="=", padx="40", pady="20", command=vienads, bg="grey", fg="white")
 btn18 = Button(mansLogs, text="C", padx="40", pady="20", command=notirit, bg="grey", fg="red")
-
+btn19 = Button(mansLogs, text="%", padx="40", pady="20", command=lambda:btnCommand("%"),bg="grey", fg="white")
+ 
 btn0.grid(row=4, column=2)
 btn1.grid(row=3, column=1)  
 btn2.grid(row=3, column=2)
@@ -99,6 +103,7 @@ btn15.grid(row=5, column=3)
 btn16.grid(row=5, column=2)
 btn17.grid(row=4, column=1)
 btn18.grid(row=4, column=3)
+btn19.grid(row=5, column=1)
 
 def btnClick(number):
     current=e.get() #nolasa esošo skaitli
